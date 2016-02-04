@@ -1,5 +1,8 @@
 package algorithams.iterator;
-
+/**
+ * 
+ * @author Stefan Angelov (cefothe)
+ */
 public interface Iterator {
 	
 	public void first();
