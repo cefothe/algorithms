@@ -26,29 +26,47 @@ public class ArrayIterator implements Iterator {
 		this._end= end;
 	}
 	
+	/**
+	 * This change Iterator position to start element 
+	 */
 	public void first() {
 		
 		_current = _start;
 	}
-
+	
+	/**
+	 * This change Iterator position to end element 
+	 */
 	public void last() {
 		_current = _end;		
 	}
 
+	/**
+	 * Check if have values in array
+	 */
 	public boolean isDone() {
 		return _current<_start || _current>_end;
 	}
 
+	/**
+	 * Move position to next element in array
+	 */
 	public void next() {
 		_current++;
 		
 	}
 
+	/**
+	 * Move position to previus element in array
+	 */
 	public void previus() {
 		_current--;
 		
 	}
 
+	/**
+	 * @return {@link Object} Return current element
+	 */
 	public Object current() throws IteratorOutBoundsException {
 		if(isDone()){
 			throw new IteratorOutBoundsException();
