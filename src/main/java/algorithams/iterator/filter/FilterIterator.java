@@ -12,61 +12,61 @@ import algorithams.iterator.IteratorOutBoundsException;
  */
 public class FilterIterator implements Iterator {
 
-	private final Iterator _iterator;
-	private final Pedicate _pedicate;
-	
-	public FilterIterator(Iterator iterator, Pedicate pedicate){
-		Validate.notNull(pedicate);
-		Validate.notNull(iterator);
-		
-		this._iterator = iterator;
-		this._pedicate =pedicate;
-	}
-	
-	public void first() {
-		_iterator.first();
-		filterForwards();
-	}
+    private final Iterator _iterator;
+    private final Pedicate _pedicate;
 
-	public void last() {
-		_iterator.last();
-		filterBackwards();
-	}
+    public FilterIterator(Iterator iterator, Pedicate pedicate) {
+	Validate.notNull(pedicate);
+	Validate.notNull(iterator);
 
-	public boolean isDone() {
-		return _iterator.isDone();
-	}
+	this._iterator = iterator;
+	this._pedicate = pedicate;
+    }
 
-	public void next() {
-		_iterator.next();
-		filterForwards();
-		
-	}
+    public void first() {
+	_iterator.first();
+	filterForwards();
+    }
 
-	public void previus() {
-		_iterator.previus();
-		filterBackwards();
-	}
+    public void last() {
+	_iterator.last();
+	filterBackwards();
+    }
 
-	public Object current() throws IteratorOutBoundsException {
-		return _iterator.current();
-	}
-	
-	/**
-	 * Filter forwards to next value which corresponds to pedicate
-	 */
-	private void filterForwards(){
-		while(!_iterator.isDone() && !_pedicate.equals(_iterator.current())){
-			_iterator.next();
-		} 
-	}
+    public boolean isDone() {
+	return _iterator.isDone();
+    }
 
-	/**
-	 * Filter backwards to previus value which corresponds to pedicate 
-	 */
-	private void filterBackwards(){
-		while(!_iterator.isDone() && !_pedicate.equals(_iterator.current())){
-			_iterator.previus();
-		} 
+    public void next() {
+	_iterator.next();
+	filterForwards();
+
+    }
+
+    public void previus() {
+	_iterator.previus();
+	filterBackwards();
+    }
+
+    public Object current() throws IteratorOutBoundsException {
+	return _iterator.current();
+    }
+
+    /**
+     * Filter forwards to next value which corresponds to pedicate
+     */
+    private void filterForwards() {
+	while (!_iterator.isDone() && !_pedicate.equals(_iterator.current())) {
+	    _iterator.next();
 	}
+    }
+
+    /**
+     * Filter backwards to previus value which corresponds to pedicate
+     */
+    private void filterBackwards() {
+	while (!_iterator.isDone() && !_pedicate.equals(_iterator.current())) {
+	    _iterator.previus();
+	}
+    }
 }
