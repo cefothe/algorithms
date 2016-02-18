@@ -4,47 +4,50 @@ import org.apache.commons.lang.Validate;
 
 /**
  * TODO: make a JUnit test for Reverse Iterator
+ * 
  * @author Stefan Angelov (cefothe)
  */
-public class ReverseArrayIterator implements Iterator {
+public class ReverseArrayIterator<T> implements Iterator<T> {
 
-	private Iterator _arrayIterator;
-	
-	/**
-	 * Constructor to create a ReverseIterator
-	 * @param arrayIterator This should be {@link ArrayIteratorTest}
-	 */
-	public ReverseArrayIterator(Iterator arrayIterator){
-		Validate.notNull(arrayIterator);
-		_arrayIterator = arrayIterator;
-	}
-	
-	public void first() {
-		_arrayIterator.last();
-		
-	}
+    private Iterator<T> _arrayIterator;
 
-	public void last() {
-		_arrayIterator.first();
-		
-	}
+    /**
+     * Constructor to create a ReverseIterator
+     * 
+     * @param arrayIterator
+     *            This should be {@link ArrayIterator}
+     */
+    public ReverseArrayIterator(Iterator<T> arrayIterator) {
+	Validate.notNull(arrayIterator);
+	_arrayIterator = arrayIterator;
+    }
 
-	public boolean isDone() {
-		return _arrayIterator.isDone();
-	}
+    public void first() {
+	_arrayIterator.last();
 
-	public void next() {
-		_arrayIterator.previus();
-		
-	}
+    }
 
-	public void previus() {
-        _arrayIterator.next();
-		
-	}
+    public void last() {
+	_arrayIterator.first();
 
-	public Object current() throws IteratorOutBoundsException {
-		return _arrayIterator.current();
-	}
- 
+    }
+
+    public boolean isDone() {
+	return _arrayIterator.isDone();
+    }
+
+    public void next() {
+	_arrayIterator.previus();
+
+    }
+
+    public void previus() {
+	_arrayIterator.next();
+
+    }
+
+    public T current() throws IteratorOutBoundsException {
+	return _arrayIterator.current();
+    }
+
 }

@@ -10,12 +10,12 @@ import algorithams.iterator.IteratorOutBoundsException;
  * @author stefan
  *
  */
-public class FilterIterator implements Iterator {
+public class FilterIterator<T> implements Iterator<T> {
 
-    private final Iterator _iterator;
-    private final Pedicate _pedicate;
+    private final Iterator<T> _iterator;
+    private final Pedicate<T> _pedicate;
 
-    public FilterIterator(Iterator iterator, Pedicate pedicate) {
+    public FilterIterator(Iterator<T> iterator, Pedicate<T> pedicate) {
 	Validate.notNull(pedicate);
 	Validate.notNull(iterator);
 
@@ -48,7 +48,7 @@ public class FilterIterator implements Iterator {
 	filterBackwards();
     }
 
-    public Object current() throws IteratorOutBoundsException {
+    public T current() throws IteratorOutBoundsException {
 	return _iterator.current();
     }
 

@@ -7,7 +7,7 @@ import org.apache.commons.lang.Validate;
  * 
  * @author Stefan Angelov (cefothe)
  */
-public class ArrayIterator<T> implements Iterator {
+public class ArrayIterator<T> implements Iterator<T> {
 
     private final T[] _array;
     private final int _start;
