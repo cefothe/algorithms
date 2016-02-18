@@ -12,7 +12,7 @@ public class ReverseArrayIterator implements Iterator {
 	
 	/**
 	 * Constructor to create a ReverseIterator
-	 * @param arrayIterator This should be {@link ArrayIterator}
+	 * @param arrayIterator This should be {@link ArrayIteratorTest}
 	 */
 	public ReverseArrayIterator(Iterator arrayIterator){
 		Validate.notNull(arrayIterator);

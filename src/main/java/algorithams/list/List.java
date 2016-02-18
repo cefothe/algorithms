@@ -3,7 +3,7 @@ package algorithams.list;
 import algorithams.calculator.iterable.Iterable;
 
 /**
- * Implement Iterable interface
+ * Implement List interface
  * 
  * @author cefothe
  * 
