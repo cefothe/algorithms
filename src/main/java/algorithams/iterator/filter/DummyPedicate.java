@@ -11,12 +11,12 @@ import algorithams.iterator.Iterator;
  * @author stefan
  *
  */
-public class DummyPedicate implements Pedicate {
+public class DummyPedicate<T> implements Pedicate<T> {
 
-    private final Iterator _iterator;
+    private final Iterator<T> _iterator;
     private final boolean _result;
 
-    public DummyPedicate(Iterator iterator, boolean result) {
+    public DummyPedicate(Iterator<T> iterator, boolean result) {
 	Validate.notNull(iterator);
 	Validate.notNull(result);
 
