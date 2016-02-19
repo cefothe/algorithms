@@ -2,6 +2,7 @@ package algorithams.list;
 
 import org.apache.commons.lang.Validate;
 
+import algorithams.iterator.ArrayIterator;
 import algorithams.iterator.Iterator;
 import algorithams.iterator.IteratorOutBoundsException;
 
@@ -31,9 +32,11 @@ public class ArrayList<T> implements List<T> {
 	clear();
     }
 
+    /**
+     * 
+     */
     public Iterator<T> iterator() {
-	// TODO Auto-generated method stub
-	return null;
+	return new ArrayIterator<T>(_array, 0, _size);
     }
 
     /**
@@ -115,6 +118,13 @@ public class ArrayList<T> implements List<T> {
 	this._array = (T[]) new Object[_initialCapacity];
 	this._size = 0;
 
+    }
+
+    /**
+     * Add the element on last position
+     */
+    public void add(T value) {
+	insert(_size, value);
     }
 
 }

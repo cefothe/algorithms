@@ -9,6 +9,13 @@ import algorithams.calculator.iterable.Iterable;
  * 
  */
 public interface List<T> extends Iterable<T> {
+
+    /**
+     * 
+     * @param value
+     */
+    public void add(T value);
+
     /**
      * Insert element into list
      * 
