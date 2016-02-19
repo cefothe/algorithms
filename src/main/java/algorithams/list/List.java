@@ -8,7 +8,7 @@ import algorithams.calculator.iterable.Iterable;
  * @author cefothe
  * 
  */
-public interface List extends Iterable {
+public interface List<T> extends Iterable<T> {
     /**
      * Insert element into list
      * 
@@ -18,7 +18,7 @@ public interface List extends Iterable {
      *            - element
      * @throws IndexOutOfBoundsException
      */
-    public void insert(int index, Object value) throws IndexOutOfBoundsException;
+    public void insert(int index, T value) throws IndexOutOfBoundsException;
 
     /**
      * Delete element to list
@@ -37,7 +37,7 @@ public interface List extends Iterable {
      * @return - Element on position equals to index
      * @throws IndexOutOfBoundsException
      */
-    public Object get(int index) throws IndexOutOfBoundsException;
+    public T get(int index) throws IndexOutOfBoundsException;
 
     /**
      * 
@@ -53,7 +53,7 @@ public interface List extends Iterable {
      * @param value
      * @throws IndexOutOfBoundsException
      */
-    public void set(int index, Object value) throws IndexOutOfBoundsException;
+    public void set(int index, T value) throws IndexOutOfBoundsException;
 
     /**
      * 
@@ -61,7 +61,7 @@ public interface List extends Iterable {
      *            - Delete first element equals that value
      * @return
      */
-    public boolean delete(Object value);
+    public boolean delete(T value);
 
     /**
      * Check value is exist
@@ -69,7 +69,7 @@ public interface List extends Iterable {
      * @param value
      * @return
      */
-    public boolean contains(Object value);
+    public boolean contains(T value);
 
     /**
      * 
