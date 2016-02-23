@@ -96,13 +96,24 @@ public class ArrayList<T> implements List<T> {
 	return _size;
     }
 
+    /**
+     * Set value on position
+     */
     public void set(int index, T value) throws IndexOutOfBoundsException {
-	// TODO Auto-generated method stub
-
+	Validate.notNull(value);
+	checkOutOfBounds(index);
+	_array[index] = value;
     }
 
+    /**
+     * Delete element by value
+     */
     public boolean delete(T value) {
-	// TODO Auto-generated method stub
+	int index = indexOf(value);
+	if (indexOf(value) != -1) {
+	    delete(index);
+	    return true;
+	}
 	return false;
     }
 
