@@ -72,8 +72,18 @@ public class ArrayList<T> implements List<T> {
 
     }
 
+    /**
+     * Delete element by index
+     * 
+     * @param index
+     */
     public void delete(int index) throws IndexOutOfBoundsException {
-	// TODO Auto-generated method stub
+	checkOutOfBounds(index);
+	int copyFromIndex = index + 1;
+	if (copyFromIndex < _size) {
+	    System.arraycopy(_array, copyFromIndex, _array, index, _size - copyFromIndex);
+	}
+	_array[--_size] = null;
 
     }
 
@@ -96,14 +106,24 @@ public class ArrayList<T> implements List<T> {
 	return false;
     }
 
+    /**
+     * 
+     */
     public boolean contains(T value) {
-	// TODO Auto-generated method stub
-	return false;
+	return indexOf(value) != -1;
     }
 
+    /**
+     * 
+     */
     public int indexOf(Object value) {
-	// TODO Auto-generated method stub
-	return 0;
+	Validate.notNull(value);
+	for (int i = 0; i < _size; ++i) {
+	    if (value.equals(_array[i])) {
+		return i;
+	    }
+	}
+	return -1;
     }
 
     public boolean isEmpty() {
@@ -127,4 +147,13 @@ public class ArrayList<T> implements List<T> {
 	insert(_size, value);
     }
 
+    private void checkOutOfBounds(int index) {
+	if (isOutOfBounds(index)) {
+	    throw new IndexOutOfBoundsException();
+	}
+    }
+
+    private boolean isOutOfBounds(int index) {
+	return index < 0 || index > _size;
+    }
 }
